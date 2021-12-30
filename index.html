@@ -18,37 +18,26 @@
 <!-- Chrome Theme (URL Bar Color) -->
 <meta name="theme-color" content="#1a62f2" />
 
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Muli%7CRoboto:400,300,500,700,900" rel="stylesheet"></head>
+  <link rel="stylesheet" href="css/index.css">
   <body>
 
     <div class="main-nav">
         <ul class="nav">
           <li class="name">Sterwart Butterfield</li>
-          <li><a href="index.html" class="selected">Home</a></li>
-          <li><a href="achievements.html">Achievements</a></li>
+          <li><a href="index.html" class="selected nav-btn">Home</a></li>
+          <li><a href="achievements.html" class="nav-btn">Achievements</a></li>
         </ul>
     </div>
 
     <header>
       <img src="images/butterfield.jpeg" alt="Stewart Butterfield Profile" class="profile-image">
       <h1 class="tag name">Sterwart Butterfield</h1>
-      <p class="tag location">C.E.O and Co-founder Slack</p>
+      <p class="btn">C.E.O and Co-founder Slack</p>
     </header>
  
     <main class="flex">
       <div class="card">
-         <!-- canvas -->
-        <canvas id="myCanvas" width=40px; height="10" style="border:1px solid #1f9eff80; background-color:rgb(140, 176, 10);">
-      </canvas><canvas id="myCanvas" width=40px height="10" style="border:1px solid #1f9eff80; background-color:yellow;">
-        </canvas><canvas id="myCanvas" width=40px height="10" style="border:1px solid #1f9eff80; background-color:rgb(0, 255, 8);">
-        </canvas> <canvas id="myCanvas" width=40px; height="10" style="border:1px solid #1f9eff80; background-color:rgb(140, 176, 10);">
-        </canvas><canvas id="myCanvas" width=40px height="10" style="border:1px solid #1f9eff80; background-color:yellow;">
-        </canvas><canvas id="myCanvas" width=40px height="10" style="border:1px solid #1f9eff80; background-color:rgb(0, 255, 8);">
-        </canvas> <canvas id="myCanvas" width=40px; height="10" style="border:1px solid #1f9eff80; background-color:rgb(140, 176, 10);">
-        </canvas><canvas id="myCanvas" width=40px height="10" style="border:1px solid #1f9eff80; background-color:yellow;">
-        </canvas><canvas id="myCanvas" width=40px height="10" style="border:1px solid #1f9eff80; background-color:rgb(0, 255, 8);">
-          </canvas>
+   
         <h2>Background</h2>
             <p>
               Daniel Stewart Butterfield (born Dharma Jeremy Butterfield;March 21, 1973) 
@@ -63,29 +52,12 @@
             He received a B.A. degree in philosophy from the  University of Victoria in 1996 and 
             went on to earn a Masters of Philosophy from Clare College Cambridge in 1998.
           </p>
-            <p>
-              In 2009, Butterfield co-founded a new company called Tiny Speck. 
-              Tiny Speck launched its first project, the massively multiplayer game Glitch on September 27, 2011.
-               Glitch was later closed due to its failure to attract a sufficiently large audience. 
-            </p>
-            <p>
-              August 2013, Butterfield announced the release of slack, an instant-messaging team communication tool, 
-            </p>
+           
         
       </div> 
 
       <div class="card">
-             <!-- canvas -->
-             <canvas id="myCanvas" width=40px; height="10" style="border:1px solid #1f9eff80; background-color:rgb(140, 176, 10);">
-            </canvas><canvas id="myCanvas" width=40px height="10" style="border:1px solid #1f9eff80; background-color:yellow;">
-              </canvas><canvas id="myCanvas" width=40px height="10" style="border:1px solid #1f9eff80; background-color:rgb(0, 255, 8);">
-              </canvas> <canvas id="myCanvas" width=40px; height="10" style="border:1px solid #1f9eff80; background-color:rgb(140, 176, 10);">
-              </canvas><canvas id="myCanvas" width=40px height="10" style="border:1px solid #1f9eff80; background-color:yellow;">
-              </canvas><canvas id="myCanvas" width=40px height="10" style="border:1px solid #1f9eff80; background-color:rgb(0, 255, 8);">
-              </canvas> <canvas id="myCanvas" width=40px; height="10" style="border:1px solid #1f9eff80; background-color:rgb(140, 176, 10);">
-              </canvas><canvas id="myCanvas" width=40px height="10" style="border:1px solid #1f9eff80; background-color:yellow;">
-              </canvas><canvas id="myCanvas" width=40px height="10" style="border:1px solid #1f9eff80; background-color:rgb(0, 255, 8);">
-                </canvas>
+            
       <h2>Slack CEO Stewart Butterfield explains what makes Slack unique</h2>
       
 
@@ -93,14 +65,18 @@
       </div> 
 
     </main>
+    <h2>Leave Us a comment/feedback</h2>
+    <form>      
+      <input name="name" type="text" class="feedback-input" placeholder="Name" />   
+      <input name="email" type="text" class="feedback-input" placeholder="Email" />
+      <textarea name="text" class="feedback-input" placeholder="Your message here"></textarea>
+      <input  type="submit" value="SUBMIT"/>
+    </form>
+    
+    <div id="footer">
     <footer>
-      <ul>
-        <li><a href="" class="social twitter">Twitter</a></li>
-        
-        <li><a href="" class="social linkedin">LinkedIn</a></li>
-        <li><a href="" class="social github">Github</a></li>
-      </ul>
       <p class="copyright">Copyright 2021, Sterwart Butterfield</p>
     </footer>
+  </div>
   </body>
   </html>
