@@ -1,3 +1,39 @@
+// Scss Variable
+$font:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+$background-hover: #E29D49;
+$bg-color:#f7f5f0;
+$button-color:#4d9c57;
+$black-color:#020202;
+
+//  a function that takes in paddings as arguments and returnd them
+@function pad($pads...) {
+  @return $pads;
+  }
+
+  
+// function to calculate column percentage
+// total columns are 12
+//$col-count global variable =12
+$col-count: 12;
+@function col-pct($columns) {
+  //calculate the percentage and concantinate %
+    @return unquote((100/$col-count)*$columns+"%");
+}
+
+@mixin button {
+  color:$bg-color;
+  background-color:$button-color;
+  color:$black-color;
+  padding: pad(10px);
+  border-radius: 5px;
+  display: table;
+  margin: 10px auto;
+}
+@mixin button-hover{
+  margin-top: 10px;
+  transition: all .3s;
+  background-color:$background-hover;
+}
 
 * { 
     box-sizing: border-box;
@@ -5,158 +41,164 @@
     
   body {
     margin: 0;
-    padding: 0;
+    padding:  pad(0px);
     text-align: center;
-    font-family: 'Roboto', sans-serif;
-    color: #222;
-    background: #f7f5f0;
+    font-family: $font;
+    color:$black-color;
+    background:$bg-color;
   }
-  /* Link Styles */
-  
+
+  //utilizing the & 
   a {
     text-decoration: none;
-    color: #999;
+    color:$black-color;
+  &:hover {
+    color:$background-hover;
   }
-  a:hover {
-    color: #4C8587;
-  }
+}
   
   /* Section Styles */
-  
+  //   nesting
   .main-nav {
-    width: 100%;
-    background: black;
+    width: col-pct(12);
+    background:$black-color;
     min-height: 30px;
-    padding: 10px;
+    padding:  pad(10px);
     position: fixed;
     text-align: center;
-  }
-  .nav {
+  .nav  {
     display: flex;
     justify-content: space-around;
     font-weight: 700;
     list-style-type: none;
     margin: 0 auto;
-    padding: 0;
+    padding:  pad(0px);
   }
-  
-  .nav .name {
+    .name{
       display: block;
       margin-right: auto;
-      color: white;
-      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      color:$bg-color;
+    //   variable
+      font-family: $font;
       font-size:20px;
-  }
+    }
+  
+}
   .nav li {
-    padding: 5px 10px 10px 10px;
+    padding: pad(5px 10px 10px 10px);
   }
   .nav a {
     transition: all .5s;
-  }
-  .nav a:hover {
-    color: white
-  }
-  
-  .nav a.selected {
+  &:hover {
+    color:$bg-color;
+  }&.selected {
     color: rgb(9, 134, 206);
-    background-color: #E29D49;
+    background-color:$background-hover;
   }
-  
+}
+ 
+  // Nesting
   header {
     text-align: center;
     background: url('../images/bg.jpeg') no-repeat top center ;
     background-size: cover;
     overflow: hidden;
-    padding-top: 60px;
-  }
-  header {
+    padding-top:  pad(60px);
     line-height: 1.5;
-  }
-  header .profile-image  {
-    margin-top: 40px;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 3px solid white;
-    transition: all .5s;
-  }
-  header .profile-image:hover {
-    transform: scale(1.2);
-  }
   
-
-  .btn , .nav-btn {
-    color: #efefef;
-    background-color: #4d9c57;
-    color: black;
-    padding: 10px;
-    border-radius: 5px;
-    display: table;
-    margin: 10px auto;
-  }
-  .btn:hover  {
-    margin-top: 50px;
+  .profile-image  {
+    margin-top: 40px;
+    width:150px;
+    height:150px;
+    border-radius: 50%;
+    border: 3px solid $bg-color;
     transition: all .5s;
-    background-color: #E29D49;
+    &:hover {
+      transform: scale(1.2);
+    }
   }
-  .nav-btn:hover  {
-    
-    background-color: #E29D49;
+ 
+}
+  .btn , .nav-btn {
+  @include button;
+  }
+  .btn:hover ,.nav-btn:hover  {
+    @include button-hover;
   }
 
   .card {
     margin: 30px;
+    @media only screen and (min-width: 781px) and (max-width: 999px) {
     padding: 20px 40px 40px;
-    max-width: 500px;
+    width: col-pct(5);
+    }
+    @media only screen and (min-width: 400px) and (max-width: 780px) {
+      padding: 10px 10px 10px;
+      width: col-pct(10);
+      }
     text-align: left;
-    background: #fff;
+    background:$bg-color;
     border-bottom: 4px solid #ccc;
     border-radius: 6px;
   }
-  
+  iframe{
+    width:col-pct(12);
+    height:300px;
+  }
   .card:hover {
-    border-color: #E29D49;
+    border-color:$background-hover;
   }
   #footer{
     text-align: center;
     background: url('../images/bg.jpeg') no-repeat top center ;
     background-size: cover;
     overflow: hidden;
-    padding-top: 60px;
-  }
+    padding-top:  pad(60px);
   footer {
-    width: 100%;
+    width: col-pct(12);
     min-height: 20px;
-    padding: 10px 0 20px 10px;
+    padding: pad(10px 0 20px 10px);
     
   }
-  
-  footer .copyright {
+.copyright {
     top: -4px;
     font-size: .75em;
   }
-  
+}
 
 //   FORM STYLING
-form { max-width:620px; margin:50px auto; }
+form { 
+  @media only screen and (min-width: 781px) and (max-width: 1200px) {
+    width:col-pct(8); 
+  margin:50px auto;
+    }
+    @media only screen and (min-width: 400px) and (max-width: 780px) {
+      width:col-pct(10); 
+      margin-bottom:20px ;
+      }
+  
+ }
 
 .feedback-input {
-  color:black;
-  font-family: Helvetica, Arial, sans-serif;
+  color:$button-color;
+  font-family:$font;
   font-weight:500;
   font-size: 18px;
   border-radius: 5px;
   line-height: 22px;
   background-color: transparent;
   transition: all 0.3s;
-  padding: 13px;
+  padding:  pad(13px);
   margin-bottom: 15px;
-  width:100%;
-  box-sizing: border-box;
+  @media only screen and (min-width: 781px) and (max-width: 1200px) {
+    width:col-pct(6); 
+    }
+    @media only screen and (min-width: 400px) and (max-width: 780px) {
+      width:col-pct(10); 
+      }
+  width:col-pct(6);
   outline:0;
 }
-
-
 textarea {
   height: 150px;
   line-height: 150%;
@@ -164,21 +206,22 @@ textarea {
 }
 
 [type="submit"] {
-  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-  width: 100%;
-  background:#4d9c57;
+  font-family:$font;
+  width: col-pct(6);
+  background:$button-color;
   border-radius:5px;
   border:0;
   cursor:pointer;
-  color:white;
+  color:$bg-color;
   font-size:24px;
   padding-top:10px;
-  padding-bottom:10px;
+  padding-bottom:pad(10px);
   transition: all 0.3s;
   margin-top:-4px;
   font-weight:700;
+  margin-bottom: 20px;
 }
-[type="submit"]:hover { background:#E29D49;}
+[type="submit"]:hover { background:$background-hover;}
 
   
   /* Styles for larger screens */
@@ -192,19 +235,16 @@ textarea {
         justify-content: space-around;
         margin: 0 auto;
     }
-  
-    // header {
-    //   min-height: 470px;
-    // }
+
   
     .nav {
       max-width: 1200px;
-      padding: 0 30px;
+      padding: pad(0 30px);
     }
   
   
     main {
-      padding-top: 20px;
+      padding-top: pad(20px);
     }
   
     main p {
@@ -214,6 +254,38 @@ textarea {
     footer {
       font-size: 1.3em;
       max-width: 1200px;
+      margin: 40px auto;
+    }
+  
+  }
+
+   /* Styles for smaller screens */
+   @media screen and (min-width: 400px) {
+
+    .card {
+     
+      width: col-pct(10);
+     
+    }
+  
+    .nav {
+      max-width: 580px;
+      padding: pad(0 30px);
+    }
+  
+
+  
+    main {
+      padding-top: pad(20px);
+    }
+  
+    main p {
+      line-height: 1.6em;
+    }
+  
+    footer {
+      font-size: 1.3em;
+      max-width: 580px;
       margin: 40px auto;
     }
   
