@@ -1,292 +1,66 @@
-// Scss Variable
-$font:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-$background-hover: #E29D49;
-$bg-color:#f7f5f0;
-$button-color:#4d9c57;
-$black-color:#020202;
+@import "../node_modules/foundation-sites/dist/css/foundation.css";
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
 
-//  a function that takes in paddings as arguments and returnd them
-@function pad($pads...) {
-  @return $pads;
-  }
+header {
+  text-align: center;
+  background:linear-gradient( to right,rgb(181, 184, 34),rgba(212, 52, 3, 0.472),orange, rgba(245, 7, 19, 0.596));
+  background-size: cover;
+  overflow: hidden;
+  padding-top: 20px; }
 
-  
-// function to calculate column percentage
-// total columns are 12
-//$col-count global variable =12
-$col-count: 12;
-@function col-pct($columns) {
-  //calculate the percentage and concantinate %
-    @return unquote((100/$col-count)*$columns+"%");
-}
 
-@mixin button {
-  color:$bg-color;
-  background-color:$button-color;
-  color:$black-color;
-  padding: pad(10px);
-  border-radius: 5px;
-  display: table;
-  margin: 10px auto;
+.card{
+  border-radius:9%;
+  margin-top:30px;
 }
-@mixin button-hover{
-  margin-top: 10px;
-  transition: all .3s;
-  background-color:$background-hover;
+main{
+  margin-left:5% !important;
+  margin-right:5% !important;
 }
-
-* { 
-    box-sizing: border-box;
-  }
-    
-  body {
-    margin: 0;
-    padding:  pad(0px);
-    text-align: center;
-    font-family: $font;
-    color:$black-color;
-    background:$bg-color;
-  }
-
-  //utilizing the & 
-  a {
-    text-decoration: none;
-    color:$black-color;
-  &:hover {
-    color:$background-hover;
-  }
+h2{
+  font-size: 36px;
+	line-height: 40px;
+	margin: 1em 0 .6em 0;
+	font-weight: normal;
+	color: white;
+	font-family: 'Hammersmith One', sans-serif;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+	position: relative;
+	color: #6Cf;
 }
-  
-  /* Section Styles */
-  //   nesting
-  .main-nav {
-    width: col-pct(12);
-    background:$black-color;
-    min-height: 30px;
-    padding:  pad(10px);
-    position: fixed;
-    text-align: center;
-  .nav  {
-    display: flex;
-    justify-content: space-around;
-    font-weight: 700;
-    list-style-type: none;
-    margin: 0 auto;
-    padding:  pad(0px);
-  }
-    .name{
-      display: block;
-      margin-right: auto;
-      color:$bg-color;
-    //   variable
-      font-family: $font;
-      font-size:20px;
-    }
-  
-}
-  .nav li {
-    padding: pad(5px 10px 10px 10px);
-  }
-  .nav a {
-    transition: all .5s;
-  &:hover {
-    color:$bg-color;
-  }&.selected {
-    color: rgb(9, 134, 206);
-    background-color:$background-hover;
-  }
-}
- 
-  // Nesting
-  header {
-    text-align: center;
-    background: url('../images/bg.jpeg') no-repeat top center ;
-    background-size: cover;
-    overflow: hidden;
-    padding-top:  pad(60px);
-    line-height: 1.5;
-  
-  .profile-image  {
-    margin-top: 40px;
-    width:150px;
-    height:150px;
+header .profile-image:hover {
+  transform: scale(1.2); }
+  header .profile-image {
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
-    border: 3px solid $bg-color;
-    transition: all .5s;
-    &:hover {
-      transform: scale(1.2);
-    }
-  }
- 
-}
-  .btn , .nav-btn {
-  @include button;
-  }
-  .btn:hover ,.nav-btn:hover  {
-    @include button-hover;
-  }
+    transition: all .5s; }
+    header .profile-image:hover {
+      transform: scale(1.2); }
 
-  .card {
-    margin: 30px;
-    @media only screen and (min-width: 781px) and (max-width: 999px) {
-    padding: 20px 40px 40px;
-    width: col-pct(5);
-    }
-    @media only screen and (min-width: 400px) and (max-width: 780px) {
-      padding: 10px 10px 10px;
-      width: col-pct(10);
+      #footer{
+        text-align: center;
+        background:linear-gradient( to right,rgb(181, 184, 34),rgba(212, 52, 3, 0.472),orange, rgba(245, 7, 19, 0.596));
+        background-size: cover;
+        overflow: hidden;
+        padding-top:20px;
+      footer {
+        width: 100%;
+        min-height: 20px;
+        padding: 10px 0 20px 10px;
+        
       }
-    text-align: left;
-    background:$bg-color;
-    border-bottom: 4px solid #ccc;
-    border-radius: 6px;
-  }
-  iframe{
-    width:col-pct(12);
-    height:300px;
-  }
-  .card:hover {
-    border-color:$background-hover;
-  }
-  #footer{
-    text-align: center;
-    background: url('../images/bg.jpeg') no-repeat top center ;
-    background-size: cover;
-    overflow: hidden;
-    padding-top:  pad(60px);
-  footer {
-    width: col-pct(12);
-    min-height: 20px;
-    padding: pad(10px 0 20px 10px);
-    
-  }
-.copyright {
-    top: -4px;
-    font-size: .75em;
-  }
-}
-
-//   FORM STYLING
-form { 
-  @media only screen and (min-width: 781px) and (max-width: 1200px) {
-    width:col-pct(8); 
-  margin:50px auto;
-    }
-    @media only screen and (min-width: 400px) and (max-width: 780px) {
-      width:col-pct(10); 
-      margin-bottom:20px ;
+    .copyright {
+        top: -4px;
+        font-size:18px;
+        font-weight: 700;
       }
-  
- }
-
-.feedback-input {
-  color:$button-color;
-  font-family:$font;
-  font-weight:500;
-  font-size: 18px;
-  border-radius: 5px;
-  line-height: 22px;
-  background-color: transparent;
-  transition: all 0.3s;
-  padding:  pad(13px);
-  margin-bottom: 15px;
-  @media only screen and (min-width: 781px) and (max-width: 1200px) {
-    width:col-pct(6); 
-    }
-    @media only screen and (min-width: 400px) and (max-width: 780px) {
-      width:col-pct(10); 
-      }
-  width:col-pct(6);
-  outline:0;
-}
-textarea {
-  height: 150px;
-  line-height: 150%;
-  resize:vertical;
-}
-
-[type="submit"] {
-  font-family:$font;
-  width: col-pct(6);
-  background:$button-color;
-  border-radius:5px;
-  border:0;
-  cursor:pointer;
-  color:$bg-color;
-  font-size:24px;
-  padding-top:10px;
-  padding-bottom:pad(10px);
-  transition: all 0.3s;
-  margin-top:-4px;
-  font-weight:700;
-  margin-bottom: 20px;
-}
-[type="submit"]:hover { background:$background-hover;}
-
-  
-  /* Styles for larger screens */
-  @media screen and (min-width: 720px) {
-    
-    .flex {
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: flex; 
-        max-width: 1200px;
-        -ms-flex-pack: distribute;
-        justify-content: space-around;
-        margin: 0 auto;
     }
 
-  
-    .nav {
-      max-width: 1200px;
-      padding: pad(0 30px);
+    iframe{
+      width:100%;
+      height:300px;
     }
-  
-  
-    main {
-      padding-top: pad(20px);
+    .button:hover{
+      background-color: rgb(202, 76, 27);
     }
-  
-    main p {
-      line-height: 1.6em;
-    }
-  
-    footer {
-      font-size: 1.3em;
-      max-width: 1200px;
-      margin: 40px auto;
-    }
-  
-  }
-
-   /* Styles for smaller screens */
-   @media screen and (min-width: 400px) {
-
-    .card {
-     
-      width: col-pct(10);
-     
-    }
-  
-    .nav {
-      max-width: 580px;
-      padding: pad(0 30px);
-    }
-  
-
-  
-    main {
-      padding-top: pad(20px);
-    }
-  
-    main p {
-      line-height: 1.6em;
-    }
-  
-    footer {
-      font-size: 1.3em;
-      max-width: 580px;
-      margin: 40px auto;
-    }
-  
-  }
